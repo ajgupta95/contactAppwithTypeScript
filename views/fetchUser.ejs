@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/form.css">
+    </head>
+    <body>
+        <h1>
+     <%=typeof name!=='undefined'? name:''%>
+        </h1>
+        
+      <h1>  <%=typeof message!=='undefined'? message:'' %>
+    </h1>
+        <form action="/addcontacts" method="POST"> 
+            <div class="container"> 
+                <h2>Add  To  Contacts</h2>
+                <b>Name</b>
+                <br>
+                <input type="text" placeholder="Enter Name" 
+                name="name" id="name" required> 
+                <br>
+                <br><b>Email</b><br>   
+               <input type="email" placeholder="Enter Email" 
+                name="email" id="email" required> 
+                <br>
+                <br><b>Mobile Number</b><br> 
+                <input type="number" placeholder="Number" 
+                name="number" id="number" required> 
+                <br><br> 
+                <button type="submit" class="registerbtn" > 
+                 Add</button> 
+            </div> 
+            <br>
+           </form> 
+        <form action="/logout" method="POST">
+        <button class="registerbtn" type="submit">logout</button>
+    </form>
+    <br><br>
+</div>
+<div>
+   
+<table   id="customers">
+    <thead>
+        <tr>
+          
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Delete</th>
+          <th>Update</th>
+        </tr>
+        
+        </thead>
+        <%if(contacts.length>0){%> 
+            <%for(let contact of contacts){%>
+        <tbody id="tablebody">
+          <td> <%=contact.firstName%></td>
+          <td> <%=contact.email%></td>
+        <td>   <%=contact.mobileNumber%></td>>
+       <td> <form action="/delete" method="POST">
+            <button class="registerbtn" type="submit">Delete</button>
+        </form></td>
+        <td> <form action="/update" method="POST">
+            <button class="registerbtn" type="submit">Update</button>
+        </form></td>
+        </tbody>
+        <% } %> 
+   </table> 
+   
+</div>
+<% } else { %>
+    <h1>No Contacts</h1>
+    <% } %>
+    </body>
+</html>
