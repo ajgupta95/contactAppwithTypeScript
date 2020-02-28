@@ -7,6 +7,8 @@ const Contacts: Schema = new Schema({
   firstName: { type: String, required: true },
   mobileNumber:{type:String,required:true},
   
+       
+
 });
 const contacts=mongoose.model('Contacts',Contacts);
 export default contacts;

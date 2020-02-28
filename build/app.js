@@ -37,6 +37,6 @@ mongoose_1.default.connect('mongodb://localhost:27017/ContactAPP', {
 app.use((req, res) => {
     res.status(404).render('404.ejs', { pageTitle: 'Page Not Found' });
 });
-app.listen(3000, () => {
+app.listen(3030, () => {
     console.log('Server is listening');
 });
